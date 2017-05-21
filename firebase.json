@@ -1,0 +1,9 @@
+{
+  "firebase": "ss16-letsc-2016",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

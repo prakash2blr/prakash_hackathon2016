@@ -1,0 +1,301 @@
+@font-face {
+    font-family: 'crafty';
+    src: url('../fonts/CraftyGirls.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    font-family: 'crafty';
+    vertical-align: baseline;
+   	font-size: 16px;
+    font-weight: normal;
+
+}
+#PresetFilters button{
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+
+}
+.manual_filter>div{
+    margin: 0px auto;
+    width: 100%;
+    padding: 10px;
+}
+#PresetFilters{
+    padding-bottom: 40px
+}
+.filters{
+    /*overflow-y:scroll */
+}
+.nano > .nano-content{
+    width: 98%
+}
+html,body{
+	overflow: hidden;
+	height: 100%;
+
+}
+#Filters .Filter .FilterSetting .FilterValue {
+    width: 30px;
+    display: inline-block;
+}
+#Filters .Filter .FilterSetting input[type="range"] {
+    -webkit-appearance: none!important;
+    width: 100px;
+    background-color: #434341;
+    height: 1px;
+    vertical-align: 1px;
+    display: inline-block;
+}
+#Filters .Filter>div {
+    padding: 5px 10px;
+}
+#Filters .Filter .FilterName {
+    float: left;
+}
+#Filters .Filter .FilterSetting {
+    float: right;
+}
+.cropped_image{
+	text-align: center;
+}
+#PresetFilters a {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background-color .3s ease-out;
+    -moz-transition: background-color .3s ease-out;
+    transition: background-color .3s ease-out;
+    background-color: #368ad2;
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 8px 10px;
+    color: #f8f8f2;
+    margin: 5px;
+    border: none;
+    font-size: 13px;
+    width: 120px;
+    cursor: pointer;
+}
+.modal-body canvas,.cropped_image canvas{
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+.docs-buttons{
+    text-align: center;
+}
+.docs-buttons .btn-group{
+    margin-bottom: 10px
+}
+.cropper-container{
+    /*height: 70vh!important*/
+}
+header{
+	/*background: #888;
+	height: 30px*/
+}
+.cropped_image{
+    background: #555
+}
+.bg{
+    position: absolute;
+    height: 100vh;
+    background: url(../images/pexels-photo-large1.jpg);
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    opacity: 0.5;
+    background-size: cover;
+    background-position: center;
+    z-index: 9999
+}
+#filedrag {
+       display: none;
+    font-weight: bold;
+    text-align: center;
+    /* padding: 1em 0; */
+    /* margin: 1em 0; */
+    color: #555;
+    /* border: 2px dashed #555; */
+    /* border-radius: 7px; */
+    cursor: default;
+    background:transparent; 
+    height: 100vh;
+     background: url(../images/background-texture.jpg) no-repeat;
+    background-size: cover
+}
+#filedrag>div{
+    color: #fff;
+    padding-top: 35%    
+}
+.browse{
+    margin-left: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+#filedrag.hover
+{
+    color: #f00;
+    border-color: #f00;
+    border-style: solid;
+    box-shadow: inset 0 3px 4px #888;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.filters,.image_container,.cropped_image,.manual_filter,.drophere{
+	float: left;
+	width: 15%;
+	height: 100vh;
+    position: relative;
+}
+.manual_filter{
+    float: right
+}
+.manual_filter label{
+    margin-bottom: 10px
+}
+input[type="range"]{
+    margin-bottom: 20px
+}
+.image_container,.cropped_image,.drophere{
+	width: 70%
+}
+.filters1{
+    margin-top: 30px
+}
+.filters1 button{
+    display: block;
+    margin-bottom: 15px;
+    width: 100%
+}
+.loading{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #000;
+	opacity: 1
+}
+.loading p{
+    line-height: 100vh;
+    text-align: center;
+    font-size: 30px
+}
+#actions{
+	position: absolute;
+	bottom: 10px
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 8.35px 0;
+      border-radius: 50%;
+}
+.filter_bg{
+  background: #555
+}
+.filter_bg label{
+  color: #fff
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  background: #888;
+  border-radius: 25px;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #888;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #888;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10.65px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #222;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  background: #888;
+  border-radius: 25px;
+  border: 1px solid #000;
+}
+input[type=range]::-moz-range-thumb {
+  border: 1px solid #888;
+  height: 30px;
+  width: 30px;
+  border-radius: 12px;
+  background: #888;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #888;
+  border: 2.3px solid #888;
+  border-radius: 50px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #888;
+  border: 2.3px solid #888;
+  border-radius: 50px;
+}
+input[type=range]::-ms-thumb {
+  border: 5px solid #888;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #888;
+  cursor: pointer;
+  height: 13.3px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #000;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #000;
+}

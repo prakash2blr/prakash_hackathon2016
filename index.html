@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title>lETSC</title>
+	 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui" id="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <link href="assets/css/theme.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/annotation.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/letsc.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script type="text/javascript" src="js/respond.proxy.js"></script>
+      <script type="text/javascript" src="js/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="filters nano" disabled>
+            <div class="bg"></div>
+            <div id="PresetFilters" class="nano-content">
+                <button id="vintagebtn" class="btn btn-primary">Vintage</button>
+                <button id="lomobtn" class="btn btn-primary">Lomo</button>
+                <button id="embossbtn" class="btn btn-primary">Emboss</button>
+                <button id="tiltshiftbtn" class="btn btn-primary">Tilt Shift</button>
+                <button id="radialblurbtn" class="btn btn-primary">Radial Blur</button>
+                <button id="edgeenhancebtn" class="btn btn-primary">Edge Enhance</button>
+                <button id="posterizebtn" class="btn btn-primary">Posterize</button>
+                <button id="claritybtn" class="btn btn-primary">Clarity</button>
+                <button id="orangepeelbtn" class="btn btn-primary">Orange Peel</button>
+                <button id="sincitybtn" class="btn btn-primary">Sin City</button>
+                <button id="sunrisebtn" class="btn btn-primary">Sun Rise</button>
+                <button id="crossprocessbtn" class="btn btn-primary">Cross Process</button>
+                <button id="hazydaysbtn" class="btn btn-primary">Hazy Days</button>
+                <button id="lovebtn" class="btn btn-primary">Love</button>
+                <button id="grungybtn" class="btn btn-primary">Grungy</button>
+                <button id="jarquesbtn" class="btn btn-primary">Jarques</button>
+                <button id="pinholebtn" class="btn btn-primary">Pin Hole</button>
+                <button id="oldbootbtn" class="btn btn-primary">Old Boot</button>
+                <button id="glowingsunbtn" class="btn btn-primary">Glow Sun</button>
+                <button id="hdrbtn" class="btn btn-warning">HDR Effect</button>
+                <button id="oldpaperbtn" class="btn btn-warning">Old Paper</button>
+                <button id="pleasantbtn" class="btn btn-warning">Pleasant</button>
+                <button id="hermajesty" class="btn btn-warning">Her Majesty</button>
+                <button id="nostalgia" class="btn btn-warning">Nostalgia</button>
+                <button id="concentrate" class="btn btn-warning">Concentrate</button>
+            </div>
+        </div>
+        <div class="image_container hide">
+            <div class="img-container " id="initimage">
+            </div>
+            <div class="img-container">
+                <canvas id="canvas"></canvas>
+                <div class="row" id="actions">
+                    <div class="col-md-12 docs-buttons">
+                        <div class="btn-group">
+                            <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+                                <input type="file" class="sr-only" id="inputImage" name="inputImage" accept="image/*">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="Import image with Blob URLs">
+                                                 <span class="fa fa-upload"></span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="btn-group btn-group-crop">
+                            <button type="button" class="btn btn-primary" data-method="getCroppedCanvas">
+                                <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="Done cropping">
+                                  Done Cropping
+                                </span>
+                            </button>
+                        </div>
+                        <!-- Show the cropped image in modal -->
+                        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.modal -->
+                    </div>
+                    <!-- /.docs-buttons -->
+                </div>
+            </div>
+        </div>
+        <div class="drophere">
+            <div id="filedrag">
+                <div>
+                    Drop files here or
+                    <label for="fileselect" class="browse">Browse</label>
+                    <input type="file" id="fileselect" class="sr-only" name="fileselect[]" multiple="multiple" />
+                </div>
+            </div>
+        </div>
+        <div class="cropped_image hide">
+            <canvas></canvas>
+        </div>
+        <div class="manual_filter">
+            <div class="bg"></div>
+            <div class="">
+                <div class="">
+                    <label for="hue">Hue</label>
+                    <input id="hue" class="js-range" name="hue" type="range" min="-50" max="50" value="0">
+                    <label for="contrast">Contrast</label>
+                    <input id="contrast" class="js-range" name="contrast" type="range" min="-50" max="50" value="0">
+                </div>
+                <div class="">
+                    <label for="vibrance">Vibrance</label>
+                    <input id="vibrance" class="js-range" name="vibrance" type="range" min="-50" max="50" value="0">
+                    <label for="sepia">Sepia</label>
+                    <input id="sepia" class="js-range" name="sepia" type="range" min="-50" max="50" value="0">
+                </div>
+                <div class="">
+                    <label for="brightness">Brightness</label>
+                    <input id="brightness" class="js-range" name="brightness" type="range" min="-50" max="50" value="0">
+                    <label for="saturation">Saturation</label>
+                    <input id="saturation" class="js-range" name="saturation" type="range" min="-50" max="50" value="0">
+                </div>
+                <div class="">
+                    <label for="noise">Noise</label>
+                    <input id="noise" class="js-range" name="noise" type="range" min="-50" max="50" value="0">
+                    
+                </div>
+               
+                <nav class="filters1">
+                    <button id="resetbtn" class="btn btn-success">Reset Filters</button>
+                    <button id="savebtn" class="btn btn-success">Save Image</button>
+                    <button id="backto" class="btn btn-success">Back to crop</button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="loading hide">
+        <p> Please wait loading the image</p>
+    </div>
+	<script type="text/javascript" src="assets/js/lib/jquery.min.js"></script>
+	<script src='assets/js/lib/firebase.js'></script>
+	 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="assets/js/utilities.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery.annotate.js"></script>
+    <script type="text/javascript" src="assets/js/lib/cropper.js"></script>
+    <script type="text/javascript" src="assets/js/lib/caman.full.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+	<script src="assets/js/lib/drop.js"></script>
+	<script src='assets/js/main.js'></script>
+</body>
+</html>
